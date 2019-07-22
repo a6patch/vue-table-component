@@ -218,7 +218,8 @@
                     return this.rows;
                 }
 
-                return this.rows.sort(sortColumn.getSortPredicate(this.sort.order, this.columns));
+                //return this.rows.sort(sortColumn.getSortPredicate(this.sort.order, this.columns));
+                return _.orderBy(this.rows, (row) => (row.data[sortColumn.show]), this.sort.order);
             },
 
             filterableColumnExists() {
